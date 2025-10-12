@@ -1,5 +1,4 @@
 ---
-// ページごとに変わる情報（タイトルなど）を受け取る準備
 export interface Props {
   title: string;
   description: string;
@@ -16,15 +15,12 @@ import Analytics from '@vercel/analytics/astro'
 
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-  <BaseHead title = {title} description = {description}/>
-
-  </head>
-
+  <head><BaseHead title = {title} description = {description}/></head>
 
   <Header />
   <div class="container">
       <slot />
   </div>
   <Footer />
+
 </html>

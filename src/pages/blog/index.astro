@@ -14,19 +14,17 @@ const posts = (await getCollection('blog')).sort(
 
 
 <Layout title ="Feel Salad" description="不定期更新中">
-	<div class="titlebar">
-        <h1>Articles</h1>
-    </div>
+
+	<div class="titlebar"><h1>Articles</h1></div>
+
 	<div class="timeline">
 		{
 		posts.map((post) => (					
 			<a class="post_card" href={`/blog/${post.id}/`}>
 				<div class="post_timestamp">{post.data.pubDate}</div>
 				<div class="post_title">{post.data.title}</div>
-				<div class="post_description">{post.data.description.replace(/<[^>]*>/g, '')}</div>
-								
-			</a>
-							
+				<div class="post_description">{post.data.description.replace(/<[^>]*>/g, '')}</div>				
+			</a>				
 		))}
 	</div>
 

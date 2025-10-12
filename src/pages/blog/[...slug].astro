@@ -15,10 +15,13 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await render(post);
 ---
+
 <Layout title ={post.data.title} description={post.data.description}>
+
 	<div class="show_container">
 		<div class="show_title">{post.data.title}</div>
 		<div class="show_timestamp">{post.data.pubDate}</div>
 		<Content class="show_description"/>
 	</div>
+	
 </Layout>
