@@ -8,6 +8,7 @@ import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import Layout from '../../layouts/BaseLayout.astro';
 import '../../styles/global.css';
+import Analytics from '@vercel/analytics/astro'
 
 
 const posts = (await getCollection('blog')).sort(
