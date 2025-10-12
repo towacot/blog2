@@ -4,25 +4,17 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/global.css';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '../layouts/BaseLayout.astro';
 import Analytics from '@vercel/analytics/astro'
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<Header />
-	<div class="container">
+
+<Layout title ="Articles" description="不定期更新中">
 	<div class="titlebar">
-            <h1>About what</h1>
-        </div>
+        <h1>About what</h1>
+    </div>
 	<div class="show_description">
 	準備中です。自己紹介、SNSアカウントの紹介、近況等を記載する予定。
 	</div>
 				
-	
-		
-	</div>
-	<Footer />
-</html>
+</Layout>
