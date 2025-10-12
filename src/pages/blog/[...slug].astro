@@ -4,6 +4,7 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import '../../styles/global.css';
 import Analytics from '@vercel/analytics/astro'
+import Layout from '../../layouts/BaseLayout.astro';
 
 
 
@@ -19,19 +20,10 @@ type Props = CollectionEntry<'blog'>;
 const post = Astro.props;
 const { Content } = await render(post);
 ---
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{post.data.title}</title>
-    <meta name="description" content={post.data.description} />
-    </head>
-<Header/>
-<div class="container">
+<Layout title ={post.data.title} description={post.data.description}>
 	<div class="show_container">
 		<div class="show_title">{post.data.title}</div>
-		<div class="show_timestamp">{post.data.pubDate }</div>
+		<div class="show_timestamp">{post.data.pubDate}</div>
 		<Content class="show_description"/>
 	</div>
-</div>
-<Footer/>
-
+</Layout>
