@@ -2,11 +2,9 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import Layout from '../../layouts/BaseLayout.astro';
 
-import Analytics from '@vercel/analytics/astro'
 
 
 const posts = (await getCollection('blog')).sort(
@@ -15,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 
-<Layout title ="Articles" description="不定期更新中">
+<Layout title ="Feel Salad" description="不定期更新中">
 	<div class="titlebar">
         <h1>Articles</h1>
     </div>
