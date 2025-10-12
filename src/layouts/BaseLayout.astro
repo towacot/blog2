@@ -23,15 +23,12 @@ import Analytics from '@vercel/analytics/astro'
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/imageMain.png" />
 
-
- 
   </head>
 
 
-
-    <body>
+  <Header />
+  <div class="container">
       <slot />
-    </body>
-
-
+  </div>
+  <Footer />
 </html>
