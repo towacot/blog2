@@ -14,13 +14,16 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content } = await render(post);
+const year = post.data.pubDate.getFullYear();
+const month = String(post.data.pubDate.getMonth() + 1).padStart(2, '0');
+const day = String(post.data.pubDate.getDate()).padStart(2, '0');
 ---
 
 <Layout title ={post.data.title} description={post.data.description}>
 
 	<div class="show_container">
 		<div class="show_title">{post.data.title}</div>
-		<div class="show_timestamp">{post.data.pubDate}</div>
+		<div class="show_timestamp">{year}-{month}-{day}</div>
 		<Content class="show_description"/>
 	</div>
 	
