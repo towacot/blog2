@@ -1,13 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import Layout from '../../layouts/BaseLayout.astro';
-import '../../styles/global.css';
+
 import Analytics from '@vercel/analytics/astro'
 
 
@@ -16,33 +14,22 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
 
-		<Header />
-		<div class="container">
-		<div class="titlebar">
-            <h1>Articles</h1>
-        </div>
-				<div class="timeline">
-					{
-						posts.map((post) => (
-							
-								<a class="post_card" href={`/blog/${post.id}/`}>
-
-									<div class="post_timestamp">{post.data.pubDate}</div>
-									<div class="post_title">{post.data.title}</div>
-									<div class="post_description">{post.data.description.replace(/<[^>]*>/g, '')}</div>
+<Layout title ="Articles" description="不定期更新中">
+	<div class="titlebar">
+        <h1>Articles</h1>
+    </div>
+	<div class="timeline">
+		{
+		posts.map((post) => (					
+			<a class="post_card" href={`/blog/${post.id}/`}>
+				<div class="post_timestamp">{post.data.pubDate}</div>
+				<div class="post_title">{post.data.title}</div>
+				<div class="post_description">{post.data.description.replace(/<[^>]*>/g, '')}</div>
 								
-								</a>
+			</a>
 							
-						))
-					}
-				</div>
+		))}
+	</div>
 
-		</div>
-		<Footer />
-</html>
+</Layout>
